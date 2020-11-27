@@ -11,7 +11,6 @@ class FlashcardViewSet(viewsets.ModelViewSet):
     queryset = Flashcard.objects.all()
     serializer_class = FlashcardSerializer
     permission_classes = [AllowAny]
-    #http_method_names = ['GET', 'POST', 'DELETE', 'PUT']
 
 
 class DeckViewSet(viewsets.ModelViewSet):

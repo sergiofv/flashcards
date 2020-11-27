@@ -21,7 +21,11 @@
     </div>
 
     <div class="decks">
-      <div class="deck" v-for="deck in decks" :key="deck.id">{{deck.name}}</div>
+      <div class="deck" v-for="deck in decks" :key="deck.id">{{deck.name}}
+        <div class="delete-decks">
+            <button @click="deleteDecks(deck.id)" class="delete">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

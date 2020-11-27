@@ -17,22 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from flashcards import views
-"""
-from flashcards.views import FlashcardViewSet
-
-flashcards_list = FlashcardViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-
-
-flashcards_detail = FlashcardViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
-"""
 
 
 router = DefaultRouter(trailing_slash=False)
