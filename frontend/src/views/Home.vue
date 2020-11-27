@@ -45,8 +45,8 @@
         <vue-flashcard
           headerFront=""
           headerBack=""
-          :footerFront="String(flashcard.deck.name)"
-          :footerBack="String(flashcard.deck.name)"
+          :footerFront="String(flashcard.deck_name)"
+          :footerBack="String(flashcard.deck_name)"
           :front="flashcard.front_side"
           :back="flashcard.back_side"
         >
