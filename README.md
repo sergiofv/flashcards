@@ -2,8 +2,7 @@
 
 ## Installation
 
-
-A) DOWNLOAD APP
+DOWNLOAD APP
 
 1. Download or clone (https://github.com/sergiofv/flashcards.git) flashcards app repo.
 
@@ -19,25 +18,25 @@ virtualenv venv
 /venv/Scripts/activate
 ```
 
-B) RUN DJANGO API
+RUN DJANGO API
 
-3. Open a terminal and go to the ..\flashcards-master\ folder and run:
+4. Open a terminal and go to the ..\flashcards-master\ folder and run:
 
 ```bash
 pip install requirements.txt
 ```
 
-4. In the same terminal go to ..\flashcards-master\prueba\ folder and run django server:
+5. In the same terminal go to ..\flashcards-master\prueba\ folder and run django server:
 
 ```bash
 python manage.py runserver
 ```
 
-C) RUN VUE APP 
+RUN VUE APP 
 
-5. Make sure you have installed node.js and npm (https://nodejs.org/en/download/)
+6. Make sure you have installed node.js and npm (https://nodejs.org/en/download/)
 
-6. Open another terminal and go to ..\flashcards-master\frontend\ and install vue dependencies:
+7. Open another terminal and go to ..\flashcards-master\frontend\ and install vue dependencies:
 
 ```bash
 npm install -g @vue/cli
@@ -45,7 +44,7 @@ npm install -g @vue/cli
 npm i vue-flashcard
 ```
 
-7. Run your Vue.js app:
+8. Run your Vue.js app:
 
 ```bash
 npm run serve
