@@ -1,4 +1,4 @@
-# FLASHCARDS APP WITH DJANGO AND VUE.JS
+# Flashcards app with Django and Vue.js
 
 ## Installation
 
