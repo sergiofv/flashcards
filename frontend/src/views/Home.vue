@@ -12,14 +12,14 @@
             <input class="input" type="text" v-model="front_side" />
           </div>
         </div>
-
+        <br>
         <div class="field">
           <label class="label">Backside</label>
           <div class="control">
             <input class="input" type="text" v-model="back_side" />
           </div>
         </div>
-
+        <br>
         <div class="field">
           <label class="label">Deck</label>
           <div class="control">
@@ -30,18 +30,21 @@
             </select>
           </div>
         </div>
-
+        <br>       
         <div class="field">
           <div class="control">
-            <button class="button is-link">Submit</button>
+            <button class="button is-link">Add</button>
           </div>
         </div>
       </form>
     </div>
 
-
     <div class="flashcards">
-      <div class="card" v-for="flashcard in flashcards" :key="flashcard.id">
+      <div
+        class="card"
+        v-for="(flashcard, index) in flashcards"
+        :key="flashcard.id"
+      >
         <vue-flashcard
           headerFront=""
           headerBack=""
@@ -52,8 +55,52 @@
         >
         </vue-flashcard>
         <div class="delete-flashcard">
-          <button @click="deleteFlashcard(flashcard.id)" class="delete">Delete</button>
+          <button v-on:click="cardToEdit = cardToEdit === index ? -1 : index">
+            Edit
+          </button>
+          &nbsp; &nbsp;
+          <button @click="deleteFlashcard(flashcard.id)" class="delete">
+            Delete
+          </button>
         </div>
+
+        <form
+          @submit.prevent="editFlashcard(flashcard.id)"
+          v-if="cardToEdit === index"
+        >
+          <br />
+          <br />
+          <div class="field">
+            <label class="label">Edit frontside</label>
+            <div class="control">
+              <input class="input" type="text" v-model="new_front_side" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Edit backside</label>
+            <div class="control">
+              <input class="input" type="text" v-model="new_back_side" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Edit deck</label>
+            <div class="control">
+              <select class="select" v-model="newSelectedDeck">
+                <option v-for="deck in decks" :key="deck.id" :value="deck.id">
+                  {{ deck.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-link">Update</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -71,7 +118,12 @@ export default {
       front_side: "",
       back_side: "",
       selectedDeck: 0,
+      newSelectedDeck: -1,
       decks: [],
+      cardToEdit: -1,
+      new_back_side: "",
+      new_front_side: "",
+
     };
   },
   mounted() {
@@ -103,19 +155,29 @@ export default {
 
           this.front_side = " ";
           this.back_side = " ";
+
+          this.getFlashcards(); 
         })
         .catch((error) => {
           console.log(error);
         });
     },
+
+    editFlashcard(id) {
+      axios
+        .put("http://127.0.0.1:8000/flashcards/" + id, {
+          front_side: this.new_front_side,
+          back_side: this.new_back_side,
+          deck: this.newSelectedDeck,
+        })
+        .then(this.getFlashcards);
+    },
+
     deleteFlashcard(id) {
       axios
-        .delete("http://127.0.0.1:8000/flashcards/"+ id)
-        .then((response) =>  {
-          console.log(response)
-          this.getFlashcards()
-        })
-      },
+        .delete("http://127.0.0.1:8000/flashcards/" + id)
+        .then(this.getFlashcards);
+    },
     getDecks() {
       axios
         .get("http://127.0.0.1:8000/decks")
@@ -131,7 +193,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
 }
 
 .card {
@@ -139,5 +200,8 @@ export default {
   padding: 20px;
   background-color: rgb(177, 253, 209);
   color: #2c3e50;
+  height: fit-content;
 }
+
+
 </style>

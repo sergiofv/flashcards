@@ -11,10 +11,10 @@
             <input class="input" type="text" v-model="name" />
           </div>
         </div>
-
+        <br>
         <div class="field">
           <div class="control">
-            <button class="button is-link">Submit</button>
+            <button class="button is-link">Add</button>
           </div>
         </div>
       </form>
@@ -23,6 +23,7 @@
     <div class="decks">
       <div class="deck" v-for="deck in decks" :key="deck.id">{{deck.name}}
         <div class="delete-decks">
+            <br>
             <button @click="deleteDecks(deck.id)" class="delete">Delete</button>
         </div>
       </div>
