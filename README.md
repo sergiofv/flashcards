@@ -1,6 +1,6 @@
-FLASHCARDS APP WITH DJANGO AND VUE.JS
+# FLASHCARDS APP WITH DJANGO AND VUE.JS
 
-How to run:
+## Installation
 
 
 A) DOWNLOAD APP
@@ -11,23 +11,31 @@ A) DOWNLOAD APP
 
 3. [Optional] Open a terminal and install virtualenv and create your custom virtual env and activate it:
 
-$ pip install virtualenv
+```bash
+pip install virtualenv
+```
 
-$ virtualenv venv
+```bash
+virtualenv venv
+```
 
-$ /venv/Scripts/activate
-
+```bash
+/venv/Scripts/activate
+```
 
 B) RUN DJANGO API
 
 3. Open a terminal and go to the ..\flashcards-master\ folder and run:
 
-$ pip install requirements.txt
+```bash
+pip install requirements.txt
+```
 
 4. In the same terminal go to ..\flashcards-master\prueba\ folder and run django server:
 
-$ python manage.py runserver
-
+```bash
+python manage.py runserver
+```
 
 C) RUN VUE APP 
 
@@ -35,13 +43,19 @@ C) RUN VUE APP
 
 6. Open another terminal and go to ..\flashcards-master\frontend\ and install vue dependencies:
 
-$ npm install -g @vue/cli
+```bash
+npm install -g @vue/cli
+```
 
-$ npm i vue-flashcard
+```bash
+npm i vue-flashcard
+```
 
 7. Run your Vue.js app:
 
-$ npm run serve
+```bash
+npm run serve
+```
 
 8. Open http://192.168.0.212:8080/ in your web browser and create, edit and delete custom flashcards!
 
