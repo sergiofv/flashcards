@@ -14,11 +14,9 @@ A) DOWNLOAD APP
 ```bash
 pip install virtualenv
 ```
-
 ```bash
 virtualenv venv
 ```
-
 ```bash
 /venv/Scripts/activate
 ```
@@ -46,7 +44,6 @@ C) RUN VUE APP
 ```bash
 npm install -g @vue/cli
 ```
-
 ```bash
 npm i vue-flashcard
 ```
